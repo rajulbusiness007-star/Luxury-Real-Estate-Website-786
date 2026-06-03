@@ -1,0 +1,203 @@
+.section {
+  padding: 8rem 0;
+  background-color: var(--bg-secondary);
+  position: relative;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Left Side — Info */
+.info {
+  position: sticky;
+  top: 8rem;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent-champagne);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.contactMethods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-champagne);
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.contactItem:hover .iconCircle {
+  border-color: var(--accent-champagne);
+  background: var(--accent-glow);
+}
+
+.contactLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 0.15rem;
+}
+
+.contactValue {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Right Side — Form */
+.formCard {
+  padding: 3rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-champagne);
+  margin-bottom: 0.6rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: var(--transition-fast);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--accent-champagne);
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(144, 149, 166, 0.5);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submitBtn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent-champagne) 0%, #a88d65 100%);
+  color: #0A0B0E;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 1.1rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(197, 168, 128, 0.3);
+  transition: var(--transition-smooth);
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(197, 168, 128, 0.45);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Success toast */
+.successMsg {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.successIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.successTitle {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-champagne);
+}
+
+.successText {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}

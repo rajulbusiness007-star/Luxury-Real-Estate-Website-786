@@ -1,0 +1,169 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.backgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* Extra height for parallax travel */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.backgroundImage {
+  object-fit: cover;
+  filter: brightness(0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 11, 14, 0.3) 0%,
+    rgba(10, 11, 14, 0.6) 60%,
+    var(--bg-primary) 100%
+  );
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 5rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent-champagne);
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  font-family: var(--font-serif);
+}
+
+.titleLight {
+  font-style: italic;
+  font-family: var(--font-serif);
+  color: var(--accent-champagne);
+}
+
+.searchWrapper {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  z-index: 4;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: var(--transition-fast);
+}
+
+.scrollIndicator:hover {
+  color: var(--accent-champagne);
+}
+
+.mouse {
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid var(--text-secondary);
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.scrollIndicator:hover .mouse {
+  border-color: var(--accent-champagne);
+}
+
+.wheel {
+  width: 3px;
+  height: 6px;
+  background-color: var(--text-secondary);
+  border-radius: 50%;
+  position: absolute;
+  top: 6px;
+  animation: scrollMouse 1.8s ease-in-out infinite;
+}
+
+.scrollIndicator:hover .wheel {
+  background-color: var(--accent-champagne);
+}
+
+@keyframes scrollMouse {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 25rem; /* Space for stacked search bar */
+  }
+
+  .content {
+    padding-bottom: 0;
+  }
+
+  .searchWrapper {
+    bottom: 2rem;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}
