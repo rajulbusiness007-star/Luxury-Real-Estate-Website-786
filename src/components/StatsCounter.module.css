@@ -1,0 +1,190 @@
+/* ───── StatsCounter ───── */
+
+.section {
+  position: relative;
+  padding: 100px 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* subtle top/bottom border glow */
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-champagne) 50%,
+    transparent
+  );
+  opacity: 0.18;
+}
+.section::before {
+  top: 0;
+}
+.section::after {
+  bottom: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+/* ── Card ── */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: var(--transition-smooth);
+  opacity: 0; /* initial – GSAP will reveal */
+}
+
+.card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow), 0 0 60px var(--accent-glow);
+  transform: translateY(-6px);
+}
+
+/* ── Icon ── */
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  color: var(--accent-champagne);
+  margin-bottom: 20px;
+  transition: var(--transition-fast);
+}
+
+.card:hover .iconWrap {
+  background: rgba(197, 168, 128, 0.25);
+  transform: scale(1.08);
+}
+
+/* ── Number ── */
+.number {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+/* ── Label ── */
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Divider (desktop only) ── */
+.divider {
+  display: none;
+}
+
+/* ─────────────── Responsive ─────────────── */
+
+/* Desktop: show divider as a vertical line on the right edge of each card */
+@media (min-width: 1025px) {
+  .grid {
+    gap: 24px;
+  }
+
+  .divider {
+    display: block;
+    position: absolute;
+    right: -13px; /* half of gap */
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      var(--glass-border-hover),
+      transparent
+    );
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .number {
+    font-size: 2.5rem;
+  }
+
+  .card {
+    padding: 36px 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 32px 20px;
+    flex-direction: row;
+    gap: 20px;
+    text-align: left;
+    align-items: center;
+  }
+
+  .iconWrap {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .number {
+    font-size: 2rem;
+    margin-bottom: 2px;
+  }
+
+  .label {
+    font-size: 0.85rem;
+  }
+}

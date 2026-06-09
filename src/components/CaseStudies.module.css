@@ -1,0 +1,227 @@
+.section {
+  position: relative;
+  padding: 120px 0;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-champagne);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* Glass card with gradient border */
+.card {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  padding: 2px; /* border thickness via background */
+  background: var(--glass-border);
+  transition: var(--transition-smooth);
+}
+
+.card:hover {
+  background: linear-gradient(
+    135deg,
+    var(--accent-champagne) 0%,
+    var(--accent-gold) 50%,
+    var(--accent-champagne) 100%
+  );
+}
+
+.cardInner {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: calc(var(--border-radius-lg) - 2px);
+  padding: 48px 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tag {
+  display: inline-block;
+  width: fit-content;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.cardDescription {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0 0 32px;
+  flex-grow: 1;
+}
+
+.metricsRow {
+  display: flex;
+  gap: 32px;
+  padding: 24px 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 32px;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricValue {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent-champagne);
+}
+
+.metricLabel {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-champagne);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  min-height: 44px;
+}
+
+.readMore:hover {
+  color: var(--accent-gold);
+}
+
+.arrow {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.readMore:hover .arrow {
+  transform: translateX(6px);
+}
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+  .section {
+    padding: 96px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .header {
+    margin-bottom: 56px;
+  }
+
+  .cardInner {
+    padding: 36px 28px;
+  }
+
+  .metricsRow {
+    gap: 24px;
+  }
+}
+
+/* Responsive: mobile */
+@media (max-width: 767px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .cardInner {
+    padding: 28px 20px;
+  }
+
+  .metricsRow {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .metric {
+    min-width: calc(50% - 8px);
+  }
+
+  .metricValue {
+    font-size: 20px;
+  }
+}

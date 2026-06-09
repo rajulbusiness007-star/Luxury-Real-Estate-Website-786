@@ -1,0 +1,120 @@
+.wrapper {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+}
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  min-height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: var(--transition-fast);
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+/* WhatsApp */
+.whatsapp {
+  background-color: #25d366;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.whatsapp:hover {
+  background-color: #1ebe57;
+  animation: none;
+}
+
+/* Call */
+.call {
+  background: linear-gradient(
+    135deg,
+    var(--accent-gold) 0%,
+    var(--accent-champagne) 100%
+  );
+}
+
+.call:hover {
+  box-shadow: 0 4px 24px rgba(212, 175, 55, 0.4);
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-fast);
+  box-shadow: var(--glass-shadow);
+}
+
+.button:hover .tooltip {
+  opacity: 1;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .wrapper {
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+
+  .button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .tooltip {
+    display: none;
+  }
+}

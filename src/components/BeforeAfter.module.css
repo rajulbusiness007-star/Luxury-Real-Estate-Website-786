@@ -1,0 +1,251 @@
+/* ───── BeforeAfter ───── */
+
+.section {
+  position: relative;
+  padding: 110px 0;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Heading ── */
+.heading {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+  opacity: 0; /* GSAP reveals */
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 2.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── Card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 36px 32px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: var(--transition-smooth);
+  opacity: 0; /* GSAP reveals */
+}
+
+.card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow), 0 0 80px var(--accent-glow);
+  transform: translateY(-6px);
+}
+
+/* ── Property Name ── */
+.propertyName {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ── Prices Row ── */
+.pricesRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.priceLabel {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+}
+
+.priceListed {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  text-decoration: line-through;
+  text-decoration-color: rgba(144, 149, 166, 0.35);
+}
+
+.arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  color: var(--accent-champagne);
+  transition: var(--transition-fast);
+}
+
+.card:hover .arrowWrap {
+  background: rgba(197, 168, 128, 0.28);
+  transform: translateX(3px);
+}
+
+.priceSold {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  line-height: 1.1;
+}
+
+/* ── Badge Row ── */
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.percentBadge,
+.daysBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.percentBadge {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.daysBadge {
+  background: var(--accent-glow);
+  color: var(--accent-champagne);
+  border: 1px solid rgba(197, 168, 128, 0.18);
+}
+
+/* ─────────────── Responsive ─────────────── */
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 2.15rem;
+  }
+
+  .heading {
+    margin-bottom: 48px;
+  }
+
+  .card {
+    padding: 28px 24px;
+  }
+
+  .priceSold {
+    font-size: 1.65rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .heading {
+    margin-bottom: 36px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+
+  .propertyName {
+    font-size: 1.3rem;
+  }
+
+  .priceListed {
+    font-size: 1.25rem;
+  }
+
+  .priceSold {
+    font-size: 1.5rem;
+  }
+
+  .pricesRow {
+    gap: 12px;
+  }
+
+  .badgeRow {
+    gap: 8px;
+  }
+
+  .percentBadge,
+  .daysBadge {
+    font-size: 0.78rem;
+    padding: 6px 12px;
+  }
+}
